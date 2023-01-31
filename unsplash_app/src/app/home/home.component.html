@@ -1,0 +1,30 @@
+<p-menubar [model]="items">
+  <ng-template pTemplate="start">
+    <img src="../../favicon.ico" height="40" class="mr-2">
+</ng-template>
+<ng-template pTemplate="end">
+    <input type="text" pInputText placeholder="Search">
+</ng-template>
+</p-menubar>
+
+
+<div class="grid justify-content-center border-1 h-20rem">
+  <div class="col-6 border-1">
+    <div class="flex flex-column justify-content-center align-items-center h-full">
+      <h1>¡Bienvenidos!</h1>
+      <p>¿Que deseas buscar?</p>
+      <input type="text" pInputText placeholder="Search">
+    </div>
+  </div>
+</div>
+
+<div class="grid justify-content-center">
+  <div class="col-12">
+    <div class="grid justify-content-center gap-3">
+      <div *ngFor="let img of imgRegularRandom" class="col-3 border-1">
+        <img [src]="img" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+
