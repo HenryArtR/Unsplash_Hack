@@ -1,3 +1,10 @@
+export interface RootObject {
+  total: number;
+  total_pages: number;
+  results: RootInfo[];
+}
+
+
 export interface RootInfo {
   id: string;
   created_at: string;

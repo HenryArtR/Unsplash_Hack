@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import {MenubarModule} from 'primeng/menubar';
 import {InputTextModule} from 'primeng/inputtext';
 import {PaginatorModule} from 'primeng/paginator';
+import {ButtonModule} from 'primeng/button';
 
 
 
@@ -10,7 +11,8 @@ import {PaginatorModule} from 'primeng/paginator';
   exports: [
     MenubarModule,
     InputTextModule,
-    PaginatorModule
+    PaginatorModule,
+    ButtonModule
     
   ],
 })

@@ -13,7 +13,8 @@
     <div class="flex flex-column justify-content-center align-items-center h-full">
       <h1>¡Bienvenidos!</h1>
       <p>¿Que deseas buscar?</p>
-      <input type="text" pInputText placeholder="Search">
+        <button type="button" pButton pRipple label="Search" (click)="searchImg(inputValue)"></button>
+        <input #inputValue type="text" pInputText placeholder="Keyword">
     </div>
   </div>
 </div>
@@ -21,14 +22,14 @@
 <div class="grid justify-content-center">
   <div class="col-12">
     <div class="grid justify-content-center gap-3">
-      <div *ngFor="let img of imgRegularRandom" class="col-12 md:col-3 border-1">
+      <div *ngFor="let img of imgRegular" class="col-12 md:col-3 border-1">
         <img [src]="img" class="w-full h-full" alt="">
       </div>
     </div>
     <div class="grid justify-content-center">
 
       <div class="col">
-        <p-paginator [rows]="1" [totalRecords]="347" (onPageChange)="changePage($event)"></p-paginator>
+        <p-paginator [rows]="1" [totalRecords]="totalPages" (onPageChange)="changePage($event)"></p-paginator>
       </div>
       <!-- <div class="col-1">
         <button (click)="changePage('prev')">prev</button>

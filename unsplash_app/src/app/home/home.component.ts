@@ -20,44 +20,45 @@ export class HomeComponent {
 
   items!: MenuItem[];
 
-  imgRegularRandom: string[] = []
+  busqueda: boolean = false;
+  valorBusqueda: string = ''
+  imgRegular: string[] = []
+  totalPages: number = 347
 
   constructor(
     private imgsrv: ImagesService,
   ) { }
 
   changePage( e: Paginator ) {
-    this.imgRegularRandom = []
-    
-    this.imgsrv.getImages(e.page+1).subscribe(result => {
-      result.map( img => {
-        this.imgRegularRandom.push(img.urls.regular)
-      })
-    },err => {
-      console.log(err);
 
-    })
+    if (this.busqueda) {
+      this.imgsrv.getImagesByName(this.valorBusqueda, e.page +1)
+    } else {
+      this.imgsrv.getImages(e.page+1) 
+    }
+    
+  }
+
+  searchImg(v:HTMLInputElement) {
+    this.busqueda = true
+    this.valorBusqueda = v.value   
+    this.imgsrv.getImagesByName(this.valorBusqueda)
   }
 
 
 
   ngOnInit() {
-
-    this.imgsrv.getImages(1).subscribe(res => {
-
-      const headers = new HttpHeaders().getAll('X-Total')
-
-      console.log(headers);
+    this.imgsrv.getImages(1)
+    this.imgsrv.getNumOfPages().subscribe((res:any)=>{
+      this.totalPages = res
+      console.log(res);
       
-      
-      res.map( img => {
-        this.imgRegularRandom.push(img.urls.regular)        
-
-      })
-    },err => {
-      console.log(err);
-
     })
+
+    this.imgsrv.getImgRegular().subscribe((res:any) => {
+      this.imgRegular = res
+    })    
+
 
     this.items = [
       {
