@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { RootInfo } from '../interfaces/unsplash.interface';
@@ -8,11 +8,19 @@ import { RootInfo } from '../interfaces/unsplash.interface';
 })
 export class ImagesService {
 
+  url: string = 'https://api.unsplash.com/'
+
+
   constructor(
     private http: HttpClient
   ) { }
 
   getImagesRandom(): Observable<RootInfo[]> {
-    return this.http.get<RootInfo[]>('​https://api.unsplash.com/photos?page=1?client_id=r-yMIsKDT6B-VvEU8to5xDyItactLX6-HK4nHjxpPfI')
+
+    const params = new HttpParams()
+    .set('client_id', 'r-yMIsKDT6B-VvEU8to5xDyItactLX6-HK4nHjxpPfI')
+    .set('page', "1");
+
+    return this.http.get<RootInfo[]>( `${this.url}photos`, {params})
   }
 }

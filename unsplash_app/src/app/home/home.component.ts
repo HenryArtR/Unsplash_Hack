@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MenuItem } from 'primeng/api';
+import { RootInfo } from '../interfaces/unsplash.interface';
 import { ImagesService } from '../services/images.service';
 
 @Component( {
@@ -15,23 +16,17 @@ export class HomeComponent {
 
   constructor(
     private imgsrv: ImagesService,
-  ) {}
+  ) {
+    this.imgsrv.getImagesRandom().subscribe((res:RootInfo[])=>{
+      
+      console.log(res);
+      
+    })
+  }
 
 
   ngOnInit() {
 
-    this.imgsrv.getImagesRandom().subscribe(result => {
-      result.map( img => {
-        this.imgRegularRandom.push(img.urls.regular)
-        console.log(img.urls.regular);
-        
-        console.log(this.imgRegularRandom);
-        
-      })
-    },err => {
-      throw new Error()
-      
-    })
 
     this.items = [
       {
