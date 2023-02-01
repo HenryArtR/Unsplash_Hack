@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { RootInfo } from '../interfaces/unsplash.interface';
@@ -15,12 +15,22 @@ export class ImagesService {
     private http: HttpClient
   ) { }
 
-  getImagesRandom(): Observable<RootInfo[]> {
+  getImages(page: number): Observable<RootInfo[]> {
 
     const params = new HttpParams()
     .set('client_id', 'r-yMIsKDT6B-VvEU8to5xDyItactLX6-HK4nHjxpPfI')
-    .set('page', "1");
+    .set('page', `${page}`)
+    .set('per_page', 30)
 
-    return this.http.get<RootInfo[]>( `${this.url}photos`, {params})
+    const headers = new HttpHeaders()
+    .set('X-Total', '300')
+
+
+
+
+
+    return this.http.get<RootInfo[]>( `${this.url}photos`, {params, headers})
   }
+
+
 }

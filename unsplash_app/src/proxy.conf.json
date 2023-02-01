@@ -1,0 +1,7 @@
+{
+  "/api/*": {
+    "target": "​https://api.unsplash.com",
+    "secure": true
+  }
+  
+}

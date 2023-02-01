@@ -21,9 +21,21 @@
 <div class="grid justify-content-center">
   <div class="col-12">
     <div class="grid justify-content-center gap-3">
-      <div *ngFor="let img of imgRegularRandom" class="col-3 border-1">
-        <img [src]="img" alt="">
+      <div *ngFor="let img of imgRegularRandom" class="col-12 md:col-3 border-1">
+        <img [src]="img" class="w-full h-full" alt="">
       </div>
+    </div>
+    <div class="grid justify-content-center">
+
+      <div class="col">
+        <p-paginator [rows]="1" [totalRecords]="347" (onPageChange)="changePage($event)"></p-paginator>
+      </div>
+      <!-- <div class="col-1">
+        <button (click)="changePage('prev')">prev</button>
+      </div>
+      <div class="col-1">
+        <button (click)="changePage('next')">next</button>
+      </div> -->
     </div>
   </div>
 </div>

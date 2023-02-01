@@ -1,7 +1,15 @@
+import { HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { MenuItem } from 'primeng/api';
-import { RootInfo } from '../interfaces/unsplash.interface';
 import { ImagesService } from '../services/images.service';
+
+
+interface Paginator {
+  first: number,
+  page:  number,
+  rows: number,
+  pageCount: number
+}
 
 @Component( {
   selector: 'app-home',
@@ -16,17 +24,40 @@ export class HomeComponent {
 
   constructor(
     private imgsrv: ImagesService,
-  ) {
-    this.imgsrv.getImagesRandom().subscribe((res:RootInfo[])=>{
-      
-      console.log(res);
-      
+  ) { }
+
+  changePage( e: Paginator ) {
+    this.imgRegularRandom = []
+    
+    this.imgsrv.getImages(e.page+1).subscribe(result => {
+      result.map( img => {
+        this.imgRegularRandom.push(img.urls.regular)
+      })
+    },err => {
+      console.log(err);
+
     })
   }
 
 
+
   ngOnInit() {
 
+    this.imgsrv.getImages(1).subscribe(res => {
+
+      const headers = new HttpHeaders().getAll('X-Total')
+
+      console.log(headers);
+      
+      
+      res.map( img => {
+        this.imgRegularRandom.push(img.urls.regular)        
+
+      })
+    },err => {
+      console.log(err);
+
+    })
 
     this.items = [
       {
