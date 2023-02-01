@@ -48,16 +48,16 @@ export class HomeComponent {
 
 
   ngOnInit() {
-    this.imgsrv.getImages(1)
-    this.imgsrv.getNumOfPages().subscribe((res:any)=>{
-      this.totalPages = res
-      console.log(res);
+    // this.imgsrv.getImages(1)
+    // this.imgsrv.getNumOfPages().subscribe((res:any)=>{
+    //   this.totalPages = res
+    //   console.log(res);
       
-    })
+    // })
 
-    this.imgsrv.getImgRegular().subscribe((res:any) => {
-      this.imgRegular = res
-    })    
+    // this.imgsrv.getImgRegular().subscribe((res:any) => {
+    //   this.imgRegular = res
+    // })    
 
 
     this.items = [

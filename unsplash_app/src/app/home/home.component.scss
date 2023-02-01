@@ -1,3 +1,9 @@
-.bg-menubar{
-  background-color: aqua;
+
+
+
+:host ::ng-deep .bg-menubar {
+  background: bisque;
+
+
 }
+

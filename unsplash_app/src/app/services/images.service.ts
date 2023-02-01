@@ -40,7 +40,7 @@ export class ImagesService {
     const params = new HttpParams()
       .set( 'client_id', 'r-yMIsKDT6B-VvEU8to5xDyItactLX6-HK4nHjxpPfI' )
       .set( 'page', `${page}` )
-      .set( 'per_page', 30 )
+      .set( 'per_page', 9 )
 
     return this.http.get<RootInfo[]>( `${this.url}photos`, { params } )
       .subscribe( result => {
@@ -61,7 +61,7 @@ export class ImagesService {
     const params = new HttpParams()
       .set( 'client_id', 'r-yMIsKDT6B-VvEU8to5xDyItactLX6-HK4nHjxpPfI' )
       .set( 'page', `${p}` )
-      .set( 'per_page', 30 )
+      .set( 'per_page', 9 )
       .set( 'query', `${q}` )
 
     return this.http.get<RootObject>( `${this.url}search/photos`, { params } ).subscribe( res => {
