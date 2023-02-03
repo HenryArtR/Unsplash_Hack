@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import './styles/main';
 
 body{
   margin: 0;
@@ -7,3 +8,16 @@ body{
 .grid{
   margin:0
 }
+
+h1{
+  font-size: 6rem;
+  color: $color1;
+  background-color: #23232332;
+  border-radius: 10px;
+  padding: 10px;
+}
+h2{
+  font-size: 3rem;
+  color: $color4;
+}
+

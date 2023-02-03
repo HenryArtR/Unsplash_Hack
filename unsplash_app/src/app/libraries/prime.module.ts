@@ -3,6 +3,7 @@ import {MenubarModule} from 'primeng/menubar';
 import {InputTextModule} from 'primeng/inputtext';
 import {PaginatorModule} from 'primeng/paginator';
 import {ButtonModule} from 'primeng/button';
+import {CardModule} from 'primeng/card';
 
 
 
@@ -12,7 +13,8 @@ import {ButtonModule} from 'primeng/button';
     MenubarModule,
     InputTextModule,
     PaginatorModule,
-    ButtonModule
+    ButtonModule,
+    CardModule
     
   ],
 })

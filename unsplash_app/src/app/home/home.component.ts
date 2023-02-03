@@ -1,5 +1,5 @@
 import { HttpHeaders } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { ImagesService } from '../services/images.service';
 
@@ -19,7 +19,7 @@ interface Paginator {
 export class HomeComponent {
 
   items!: MenuItem[];
-
+  bgImg: object = {}
   busqueda: boolean = false;
   valorBusqueda: string = ''
   imgRegular: string[] = []
@@ -40,21 +40,29 @@ export class HomeComponent {
   }
 
   searchImg(v:HTMLInputElement) {
+
     this.busqueda = true
     this.valorBusqueda = v.value   
     this.imgsrv.getImagesByName(this.valorBusqueda)
+    v.value = ''
   }
 
 
 
   ngOnInit() {
+
+    // this.imgsrv.getRandomImg()
+    // this.imgsrv.getImgRandom().subscribe((r:any)=>{
+    //   this.bgImg = {
+    //     'background-image': `url(${r})`,
+    //   }
+    // })
+    
     // this.imgsrv.getImages(1)
     // this.imgsrv.getNumOfPages().subscribe((res:any)=>{
-    //   this.totalPages = res
-    //   console.log(res);
-      
+    //   this.totalPages = res      
     // })
-
+    
     // this.imgsrv.getImgRegular().subscribe((res:any) => {
     //   this.imgRegular = res
     // })    

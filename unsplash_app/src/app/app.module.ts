@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { PrimeModule } from './libraries/prime.module';
+import { MaterialModule } from './libraries/material.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { PrimeModule } from './libraries/prime.module';
     BrowserModule,
     AppRoutingModule,
     PrimeModule,
+    MaterialModule,
     HttpClientModule,
     NgOptimizedImage
   ],
