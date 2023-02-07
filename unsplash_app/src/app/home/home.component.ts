@@ -1,5 +1,4 @@
-import { HttpHeaders } from '@angular/common/http';
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { ImagesService } from '../services/images.service';
 
@@ -51,21 +50,21 @@ export class HomeComponent {
 
   ngOnInit() {
 
-    // this.imgsrv.getRandomImg()
-    // this.imgsrv.getImgRandom().subscribe((r:any)=>{
-    //   this.bgImg = {
-    //     'background-image': `url(${r})`,
-    //   }
-    // })
+    this.imgsrv.getRandomImg()
+    this.imgsrv.getImgRandom().subscribe((r:any)=>{
+      this.bgImg = {
+        'background-image': `url(${r})`,
+      }
+    })
     
-    // this.imgsrv.getImages(1)
-    // this.imgsrv.getNumOfPages().subscribe((res:any)=>{
-    //   this.totalPages = res      
-    // })
+    this.imgsrv.getImages(1)
+    this.imgsrv.getNumOfPages().subscribe((res:any)=>{
+      this.totalPages = res      
+    })
     
-    // this.imgsrv.getImgRegular().subscribe((res:any) => {
-    //   this.imgRegular = res
-    // })    
+    this.imgsrv.getImgRegular().subscribe((res:any) => {
+      this.imgRegular = res
+    })    
 
 
     this.items = [

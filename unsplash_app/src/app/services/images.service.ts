@@ -1,6 +1,6 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { RootInfo, RootObject } from '../interfaces/unsplash.interface';
 
 @Injectable( {
@@ -45,12 +45,9 @@ export class ImagesService {
       .set( 'client_id', 'r-yMIsKDT6B-VvEU8to5xDyItactLX6-HK4nHjxpPfI' )
     return this.http.get<RootInfo>( `${this.url}photos/random`, { params } )
       .subscribe( img => {
-        this.imgRandom$.next(img.urls.full)
+        this.imgRandom$.next(img.urls.regular)
         
-      }, err => {
-        console.log( err );
-
-      } )
+      })
   }
 
   getImages( page: number ) {
@@ -63,14 +60,11 @@ export class ImagesService {
 
     return this.http.get<RootInfo[]>( `${this.url}photos`, { params } )
       .subscribe( result => {
-        result.map( img => {
+        result.forEach( img => {
           this.imgRegular.push( img.urls.regular )
           this.setImgRegular( this.imgRegular )
         } )
-      }, err => {
-        console.log( err );
-
-      } )
+      })
   }
 
   getImagesByName( q: string, p?: number ) {
@@ -84,16 +78,13 @@ export class ImagesService {
       .set( 'query', `${q}` )
 
     return this.http.get<RootObject>( `${this.url}search/photos`, { params } ).subscribe( res => {
-      res.results.map( img => {
+      res.results.forEach( img => {
         this.imgRegular.push( img.urls.regular )
         this.imgRegular$.next( this.imgRegular )
       } )
 
       this.numOfPages$.next(res.total_pages)
       
-    }, err => {
-      console.log( err );
-
-    } )
+    })
   }
 }

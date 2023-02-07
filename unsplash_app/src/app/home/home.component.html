@@ -1,4 +1,4 @@
-<mat-toolbar class="flex justify-content-between bg-5">
+<mat-toolbar class="flex justify-content-between bg-5 fixed z-2">
   <img src="../../assets/hr.png" class="w-2rem" alt="">
   <button pButton pRipple type="button" class="p-button-rounded p-button-text">
     <i class="pi pi-bars text-3xl m-auto p-2 text-white color-4"></i>
@@ -10,8 +10,8 @@
 <div #bgHeader class="grid justify-content-center bg-header" [ngStyle]="bgImg">
   <div class="col-6">
     <div class="flex flex-column justify-content-center align-items-center h-full">
-      <h1>¡Bienvenidos!</h1>
-      <p class="text-2xl color-4 bg-1 p-2 border-round">¿Que desea buscar?</p>
+      <h1 class="focus-in">¡Bienvenidos!</h1>
+      <p class="text-2xl color-4 bg-1 p-2 border-round shake-top">¿Que desea buscar?</p>
 
       <div class="p-inputgroup">
         <input #inputValue type="text" pInputText placeholder="Keyword" (keyup.enter)="searchImg(inputValue)" class="w-full">
@@ -25,7 +25,7 @@
 <div class="grid justify-content-center">
 
   <ng-container *ngIf="!busqueda; else resultado">
-    <h2>Todo tipo de imagenes a tu alcance</h2>
+    <h2 class="text-open text-center">Todo tipo de imagenes a tu alcance</h2>
   </ng-container>
   <ng-template #resultado>
     <h2>Estos son los resultados de '{{valorBusqueda | titlecase}}'</h2>
@@ -34,13 +34,9 @@
   
   <div class="col-12">
     <div class="grid justify-content-center">
-
-      <div class="col">
-        <p-paginator [rows]="1" [totalRecords]="totalPages" (onPageChange)="changePage($event)"></p-paginator>
-      </div>
     </div>
     <div class="grid justify-content-center gap-3">
-      <div *ngFor="let img of imgRegular" class="col-11 md:col-5 lg:col-3 shadow-5 border-round-lg slide-b">
+      <div *ngFor="let img of imgRegular" class="col-11 md:col-5 lg:col-3 shadow-1 border-round-lg shadow-t">
           <img [src]="img" class="w-full h-full" alt="">
       </div>
     </div>

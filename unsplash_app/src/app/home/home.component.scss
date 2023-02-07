@@ -7,18 +7,29 @@
 
 .bg-header{
 
-  height: 70vh;
+  height: 50vh;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
 
 
-.slide-l{animation:slide-in-left .5s cubic-bezier(.25,.46,.45,.94) both}
-@keyframes slide-in-left{0%{transform:translateX(-1000px);opacity:0}100%{transform:translateX(0);opacity:1}}
-
-.slide-r{animation:slide-in-right .5s cubic-bezier(.25,.46,.45,.94) both}
-@keyframes slide-in-right{0%{transform:translateX(1000px);opacity:0}100%{transform:translateX(0);opacity:1}}
 
 .slide-b{animation:slide-in-bottom .5s cubic-bezier(.25,.46,.45,.94) both}
 @keyframes slide-in-bottom{0%{transform:translateY(1000px);opacity:0}100%{transform:translateY(0);opacity:1}}
+
+.zoom{animation:text-pop-up-top .5s cubic-bezier(.25,.46,.45,.94) both}
+@keyframes text-pop-up-top{0%{transform:translateY(0);transform-origin:50% 50%;text-shadow:none}100%{transform:translateY(-50px);transform-origin:50% 50%;text-shadow:0 1px 0 #ccc,0 2px 0 #ccc,0 3px 0 #ccc,0 4px 0 #ccc,0 5px 0 #ccc,0 6px 0 #ccc,0 7px 0 #ccc,0 8px 0 #ccc,0 9px 0 #ccc,0 50px 30px rgba(0,0,0,.3)}}
+
+
+.shadow-f:hover{cursor: pointer; animation:text-shadow-pop-bottom .6s both}
+@keyframes text-shadow-pop-bottom{0%{text-shadow:0 0 #555,0 0 #555,0 0 #555,0 0 #555,0 0 #555,0 0 #555,0 0 #555,0 0 #555;transform:translateY(0)}100%{text-shadow:0 1px #555,0 2px #555,0 3px #555,0 4px #555,0 5px #555,0 6px #555,0 7px #555,0 8px #555;transform:translateY(-8px)}}
+
+.text-open{animation:tracking-in-expand 1s cubic-bezier(.215,.61,.355,1.000) both}
+@keyframes tracking-in-expand{0%{letter-spacing:-.5em;opacity:0}40%{opacity:.6}100%{opacity:1}}
+
+.focus-in{animation:text-focus-in 1.5s cubic-bezier(.55,.085,.68,.53) both}
+@keyframes text-focus-in{0%{filter:blur(12px);opacity:0}100%{filter:blur(0);opacity:1}}
+
+.shake-top{animation:shake-top .8s cubic-bezier(.455,.03,.515,.955) 2s both}
+@keyframes shake-top{0%,100%{transform:rotate(0deg);transform-origin:50% 0}10%{transform:rotate(2deg)}20%,40%,60%{transform:rotate(-4deg)}30%,50%,70%{transform:rotate(4deg)}80%{transform:rotate(-2deg)}90%{transform:rotate(2deg)}}
