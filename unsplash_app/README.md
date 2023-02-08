@@ -69,6 +69,10 @@ Estos son los resultados del escaner de Sonarqube
 
 ![Sonar-scanner](./src/assets/sonar-scanner.png)
 
+*Para poder visualizar Sonarqube hay que instalarlo todo de forma manual ya que lo corri desde el documento zip y desde mi máquina.*
+
+*También he quitado el coverage porque no he puesto tests unitarios*
+
 ## Contact info
 
 * tel: 608880686

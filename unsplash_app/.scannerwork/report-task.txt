@@ -2,5 +2,5 @@ projectKey=Unsplash_Hack
 serverUrl=http://localhost:9000
 serverVersion=9.9.0.65466
 dashboardUrl=http://localhost:9000/dashboard?id=Unsplash_Hack
-ceTaskId=AYYw1HQVWQUQyE9uo-bw
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AYYw1HQVWQUQyE9uo-bw
+ceTaskId=AYYw_WqCWQUQyE9uo-bx
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AYYw_WqCWQUQyE9uo-bx
