@@ -1,27 +1,48 @@
 # UnsplashApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
+Una aplicación que recopila la información de Unsplash para mostrar las fotos que el usuario desee y poder visualizarlo sin problemas. Consta de un buscador y una paginación para que sea mas fácil la busqueda.
 
-## Development server
+La página web es sencilla, todo pasa en una sola página para que no se carguen tantas cosas y la velocidad de carga sea mas rápida.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Framework
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Para armar toda la aplicación utilizo Angular porque tiene una buena estructura y buena documentación que ayudan a que un proyecto grande en el futuro continue sin problemas por si quieres actualizar el código o añadir mas funcionalidades puedes hacerlo sin repetir tanto código.
 
-## Build
+> Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Estructura
 
-## Running unit tests
+He pensado en hacer la estructura de la página muy parecida a otras plataformas de fotografías para que el usuario se sienta familiarizado, también lo he hecho pensando en la usabilidad y la facilidad a la hora de navegar por la página ya que es muy sencilla.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Maquetación
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Una vez hecha la estructura puse el código en marcha junto con la llama a la api de Unsplash para asegurarme de que todo corre bien y no tener problemas luego de haber maquetado y diseñado toda la página. Me decanté por usar las librerías de NgMaterial
+y PrimeNg para diseñar mas rápido. Utilizo Primeflex sobretodo para el diseño responsive y NgMaterial para implementar algunas funcionalidades ya que luego personalizarlas es mucho mas sencillo y cómodo que PrimeNg.
 
-## Further help
+> Este proyecto usa [Prime Ng](https://primeng.org/) y [Angular Material](https://material.angular.io//) para el diseño.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Código
+
+La estructura del código es muy básica, he puesto solo una ruta que es la página home para no ponerlo todo en app.component, hay una carpeta para las interfaces, para poder leer el código mas rápido.
+
+También he creado una carpeta de librerías para poder añadir mas funcionalidades de dichas librerias a la página mediante un módulo si se requiere.
+
+El código de llamada a la api de Unsplash esta en un servicio para que sea más fácil de llamar esa funcion en otros componentes que lo requieran, aunque en este caso solo hay una página y no es necesario, esta pensado para cuando la aplicación crezca.
+
+## Reconocimientos
+
+* [Unsplash]('https://unsplash.com/developers)
+
+## Contact info
+
+* tel: 608880686
+* correo: henryrivera.frontend@gmail.com
+
+
+
+
+
+
